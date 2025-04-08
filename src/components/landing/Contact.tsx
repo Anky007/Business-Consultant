@@ -52,10 +52,10 @@ const Contact = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-900">
-            Let's Talk About Your Growth
+            Ready to Scale?
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to scale your business? Let's discuss how I can help you achieve your growth goals.
+            Let's chat about how we can grow your brand, one smart experiment at a time.
           </p>
         </div>
 
@@ -125,7 +125,7 @@ const Contact = () => {
                 className="w-full bg-blue-800 hover:bg-blue-900 text-white font-medium py-6"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Sending..." : "Book a Free Discovery Call"}
               </Button>
             </form>
           </div>
@@ -134,7 +134,7 @@ const Contact = () => {
             <Card className="border-0 shadow-md bg-white h-full">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-semibold text-blue-900 mb-6">
-                  Direct Contact
+                  Let's Connect
                 </h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
@@ -176,9 +176,9 @@ const Contact = () => {
                         1
                       </div>
                       <div>
-                        <p className="font-medium text-gray-800">Initial Consultation</p>
+                        <p className="font-medium text-gray-800">Audit</p>
                         <p className="text-gray-600 mt-1">
-                          We'll discuss your business goals and current challenges
+                          We start by diagnosing what's working (and what's not)
                         </p>
                       </div>
                     </li>
@@ -187,9 +187,9 @@ const Contact = () => {
                         2
                       </div>
                       <div>
-                        <p className="font-medium text-gray-800">Strategy Session</p>
+                        <p className="font-medium text-gray-800">Strategy</p>
                         <p className="text-gray-600 mt-1">
-                          I'll analyze your current setup and propose a growth plan
+                          I map out a focused, data-driven plan
                         </p>
                       </div>
                     </li>
@@ -198,9 +198,20 @@ const Contact = () => {
                         3
                       </div>
                       <div>
-                        <p className="font-medium text-gray-800">Implementation</p>
+                        <p className="font-medium text-gray-800">Execution</p>
                         <p className="text-gray-600 mt-1">
-                          We'll work together to execute the strategy and scale your business
+                          Either I implement or support your team in doing so
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-800 font-medium">
+                        4
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800">Optimization</p>
+                        <p className="text-gray-600 mt-1">
+                          Continuous testing + iteration for compounding gains
                         </p>
                       </div>
                     </li>

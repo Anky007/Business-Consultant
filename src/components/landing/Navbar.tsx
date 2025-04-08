@@ -64,7 +64,7 @@ const Navbar = () => {
                 });
               }}
             >
-              Book a Call
+              Let's Work Together
             </Button>
           </div>
 
@@ -106,7 +106,7 @@ const Navbar = () => {
                   });
                 }}
               >
-                Book a Call
+                Let's Work Together
               </Button>
             </div>
           </div>

@@ -10,12 +10,10 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 leading-tight">
-              Scale Your D2C Brand With{" "}
-              <span className="text-blue-600">Data-Driven</span> Growth
+              Data-Driven Growth & <span className="text-blue-600">Performance Marketing</span> That Converts
             </h1>
             <p className="mt-6 text-lg md:text-xl text-gray-700 md:pr-8">
-              IIT graduate with 7+ years of experience helping ambitious D2C brands 
-              (₹80M+ turnover) scale through high-ROI Meta & Google ads and conversion-optimized websites.
+              I help D2C brands scale profitably through performance marketing, conversion optimization, and smart experimentation. Let's turn your brand into a growth engine.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button 
@@ -26,7 +24,7 @@ const Hero = () => {
                   });
                 }}
               >
-                Book a Strategy Call
+                Let's Work Together
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
@@ -54,12 +52,11 @@ const Hero = () => {
                 <div className="p-3 bg-gray-50 rounded-lg flex items-center justify-center">
                   <span className="text-lg font-bold text-gray-700">Weekend Artist</span>
                 </div>
-                <div className="col-span-2 mt-4">
-                  <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
-                    <p className="text-blue-800 font-medium">
-                      "Helped us increase ROAS by 3.2x while scaling ad spend by 150%"
-                    </p>
-                  </div>
+                <div className="p-3 bg-gray-50 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-bold text-gray-700">Dhauladhar Pickles</span>
+                </div>
+                <div className="p-3 bg-gray-50 rounded-lg flex items-center justify-center">
+                  <span className="text-lg font-bold text-gray-700">Artisan Crafts</span>
                 </div>
               </div>
             </div>
