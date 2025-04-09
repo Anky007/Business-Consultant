@@ -27,6 +27,9 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
+  phone: z.string().optional().refine((val) => !val || /^[0-9+\-\s()]{7,15}$/.test(val), {
+    message: "Please enter a valid phone number.",
+  }),
   company: z.string().optional(),
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
@@ -49,6 +52,7 @@ const Contact = () => {
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       company: "",
       message: "",
     },
@@ -145,20 +149,35 @@ const Contact = () => {
                     )}
                   />
                 </div>
-                
-                <FormField
-                  control={form.control}
-                  name="company"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Company</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Your company name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Phone Number</FormLabel>
+                        <FormControl>
+                          <Input placeholder="+1 (123) 456-7890" type="tel" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="company"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Company</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your company name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
                 
                 <FormField
                   control={form.control}
@@ -231,7 +250,7 @@ const Contact = () => {
                   <p className="text-sm text-gray-500 mt-2">
                     To set up a Google Sheet integration: 
                     1. Create a Google Sheet 
-                    2. Go to Extensions > Apps Script
+                    2. Go to Extensions &gt; Apps Script
                     3. Paste the code from the guide below
                     4. Deploy as a web app and copy the URL
                   </p>
@@ -264,6 +283,7 @@ const Contact = () => {
                       <TableRow>
                         <TableHead>Name</TableHead>
                         <TableHead>Email</TableHead>
+                        <TableHead>Phone</TableHead>
                         <TableHead>Company</TableHead>
                         <TableHead>Message</TableHead>
                       </TableRow>
@@ -273,6 +293,7 @@ const Contact = () => {
                         <TableRow key={index}>
                           <TableCell>{submission.name}</TableCell>
                           <TableCell>{submission.email}</TableCell>
+                          <TableCell>{submission.phone || "—"}</TableCell>
                           <TableCell>{submission.company || "—"}</TableCell>
                           <TableCell className="max-w-xs truncate">{submission.message}</TableCell>
                         </TableRow>
