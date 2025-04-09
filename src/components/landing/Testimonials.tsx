@@ -70,28 +70,6 @@ const Testimonials = () => {
             />
           ))}
         </div>
-        
-        <div className="mt-16 bg-blue-50 p-8 rounded-xl">
-          <h3 className="text-2xl font-bold text-blue-900 mb-6 text-center">Growth Wins</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="text-3xl font-bold text-blue-600 mb-2">3.2x</div>
-              <p className="text-gray-700">Increased ROAS for a lifestyle D2C brand through creative and targeting revamp</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
-              <p className="text-gray-700">Improved abandoned cart recovery using optimized copy and retargeting flows</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="text-3xl font-bold text-blue-600 mb-2">2.5x</div>
-              <p className="text-gray-700">Revived Meta Ads performance post-fatigue by restructuring campaigns</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-              <div className="text-3xl font-bold text-blue-600 mb-2">150%</div>
-              <p className="text-gray-700">Scaled festive campaigns profitably with hyper-local targeting + tailored offers</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

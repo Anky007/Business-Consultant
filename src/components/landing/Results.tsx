@@ -85,7 +85,7 @@ const Results = () => {
       title: "Delta Charms",
       description: "A handcrafted jewelry brand looking to scale beyond their Instagram shop.",
       stats: [
-        { label: "Increase in ROAS", value: "320%" },
+        { label: "Increase in ROAS", value: "250%" },
         { label: "Ad Spend Scaled", value: "150%" },
         { label: "Conversion Rate", value: "+42%" },
         { label: "Monthly Revenue", value: "+89%" }
