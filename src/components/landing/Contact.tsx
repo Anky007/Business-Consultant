@@ -6,45 +6,72 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Mail, Phone } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+// Define schema for form validation
+const formSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  company: z.string().optional(),
+  message: z.string().min(10, {
+    message: "Message must be at least 10 characters.",
+  }),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissions, setSubmissions] = useState<FormValues[]>([]);
+  const [showSubmissions, setShowSubmissions] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  // Initialize form with react-hook-form
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+    },
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = (values: FormValues) => {
     setIsSubmitting(true);
+    
+    // Store form submission
+    const newSubmission = { ...values };
     
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
+      setSubmissions(prev => [...prev, newSubmission]);
+      
       toast({
-        title: "Message sent!",
-        description: "I'll get back to you as soon as possible.",
+        title: "Message received!",
+        description: "Thank you for your message. I'll get back to you soon.",
       });
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        message: "",
-      });
+      
+      form.reset();
     }, 1500);
+    
+    console.log("Form submission:", values);
   };
 
   return (
@@ -61,73 +88,118 @@ const Contact = () => {
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-1/2">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-gray-700">
-                    Name
-                  </label>
-                  <Input
-                    id="name"
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <FormField
+                    control={form.control}
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    required
-                    className="w-full"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Name</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Your name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-gray-700">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
+                  <FormField
+                    control={form.control}
                     name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@example.com"
-                    required
-                    className="w-full"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input placeholder="your.email@example.com" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
                   />
                 </div>
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="company" className="text-sm font-medium text-gray-700">
-                  Company
-                </label>
-                <Input
-                  id="company"
+                
+                <FormField
+                  control={form.control}
                   name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  placeholder="Your company name"
-                  className="w-full"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Company</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your company name" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                  How can I help?
-                </label>
-                <Textarea
-                  id="message"
+                
+                <FormField
+                  control={form.control}
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your growth challenges..."
-                  required
-                  className="w-full h-32"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>How can I help?</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Tell me about your growth challenges..." 
+                          className="h-32" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-blue-800 hover:bg-blue-900 text-white font-medium py-6"
-                disabled={isSubmitting}
+                
+                <Button
+                  type="submit"
+                  className="w-full bg-blue-800 hover:bg-blue-900 text-white font-medium py-6"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Book a Free Discovery Call"}
+                </Button>
+              </form>
+            </Form>
+            
+            {/* Admin section to view submissions */}
+            <div className="mt-8">
+              <Button 
+                variant="outline" 
+                onClick={() => setShowSubmissions(!showSubmissions)} 
+                className="w-full"
               >
-                {isSubmitting ? "Sending..." : "Book a Free Discovery Call"}
+                {showSubmissions ? "Hide" : "View"} Form Submissions
               </Button>
-            </form>
+              
+              {showSubmissions && submissions.length > 0 && (
+                <div className="mt-4 overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Email</TableHead>
+                        <TableHead>Company</TableHead>
+                        <TableHead>Message</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {submissions.map((submission, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{submission.name}</TableCell>
+                          <TableCell>{submission.email}</TableCell>
+                          <TableCell>{submission.company || "—"}</TableCell>
+                          <TableCell className="max-w-xs truncate">{submission.message}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              )}
+              
+              {showSubmissions && submissions.length === 0 && (
+                <p className="text-center mt-4 text-gray-500">No submissions yet</p>
+              )}
+            </div>
           </div>
 
           <div className="lg:w-1/2">
