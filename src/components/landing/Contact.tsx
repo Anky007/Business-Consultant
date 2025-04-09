@@ -40,6 +40,8 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissions, setSubmissions] = useState<FormValues[]>([]);
   const [showSubmissions, setShowSubmissions] = useState(false);
+  const [googleSheetUrl, setGoogleSheetUrl] = useState("");
+  const [showGoogleSheetConfig, setShowGoogleSheetConfig] = useState(false);
 
   // Initialize form with react-hook-form
   const form = useForm<FormValues>({
@@ -52,15 +54,33 @@ const Contact = () => {
     },
   });
 
-  const onSubmit = (values: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     
-    // Store form submission
+    // Store form submission locally
     const newSubmission = { ...values };
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // If Google Sheet webhook URL is set, send data there
+      if (googleSheetUrl) {
+        console.log("Submitting to Google Sheet:", googleSheetUrl);
+        
+        const response = await fetch(googleSheetUrl, {
+          method: "POST",
+          mode: "no-cors", // Required for Google Apps Script webhooks
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...values,
+            timestamp: new Date().toISOString(),
+          }),
+        });
+        
+        console.log("Google Sheet submission sent");
+      }
+      
+      // Store locally regardless of Google Sheet submission
       setSubmissions(prev => [...prev, newSubmission]);
       
       toast({
@@ -69,9 +89,16 @@ const Contact = () => {
       });
       
       form.reset();
-    }, 1500);
-    
-    console.log("Form submission:", values);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "There was a problem submitting your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -160,6 +187,65 @@ const Contact = () => {
                 </Button>
               </form>
             </Form>
+            
+            {/* Google Sheet Configuration */}
+            <div className="mt-8">
+              <Button 
+                variant="outline" 
+                onClick={() => setShowGoogleSheetConfig(!showGoogleSheetConfig)} 
+                className="w-full"
+              >
+                {showGoogleSheetConfig ? "Hide" : "Configure"} Google Sheet Connection
+              </Button>
+              
+              {showGoogleSheetConfig && (
+                <div className="mt-4 p-4 border rounded-md">
+                  <h3 className="text-lg font-medium mb-3">Google Sheet Webhook URL</h3>
+                  <div className="flex gap-2">
+                    <Input
+                      value={googleSheetUrl}
+                      onChange={(e) => setGoogleSheetUrl(e.target.value)}
+                      placeholder="Paste your Google Apps Script Web App URL"
+                      className="flex-1"
+                    />
+                    <Button 
+                      variant="outline"
+                      onClick={() => {
+                        if (googleSheetUrl) {
+                          toast({
+                            title: "Configuration Saved",
+                            description: "Form submissions will now be sent to your Google Sheet."
+                          });
+                        } else {
+                          setGoogleSheetUrl("");
+                          toast({
+                            title: "Configuration Cleared",
+                            description: "Google Sheet integration has been disabled."
+                          });
+                        }
+                      }}
+                    >
+                      {googleSheetUrl ? "Save" : "Clear"}
+                    </Button>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-2">
+                    To set up a Google Sheet integration: 
+                    1. Create a Google Sheet 
+                    2. Go to Extensions > Apps Script
+                    3. Paste the code from the guide below
+                    4. Deploy as a web app and copy the URL
+                  </p>
+                  <a 
+                    href="https://developers.google.com/apps-script/guides/web" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:underline mt-2 inline-block"
+                  >
+                    Google Apps Script Web App Guide
+                  </a>
+                </div>
+              )}
+            </div>
             
             {/* Admin section to view submissions */}
             <div className="mt-8">
