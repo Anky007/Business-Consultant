@@ -1,10 +1,9 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Mail, Phone } from "lucide-react";
+import { Calendar, Mail, Phone, Check, AlertCircle } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { 
   Form,
@@ -18,6 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 // Define schema for form validation
 const formSchema = z.object({
@@ -45,6 +45,19 @@ const Contact = () => {
   const [showSubmissions, setShowSubmissions] = useState(false);
   const [googleSheetUrl, setGoogleSheetUrl] = useState("");
   const [showGoogleSheetConfig, setShowGoogleSheetConfig] = useState(false);
+  const [integrationStatus, setIntegrationStatus] = useState<{
+    status: 'idle' | 'success' | 'error';
+    message?: string;
+    timestamp?: string;
+  }>({ status: 'idle' });
+
+  // Load googleSheetUrl from localStorage on component mount
+  useEffect(() => {
+    const savedUrl = localStorage.getItem('googleSheetWebhookUrl');
+    if (savedUrl) {
+      setGoogleSheetUrl(savedUrl);
+    }
+  }, []);
 
   // Initialize form with react-hook-form
   const form = useForm<FormValues>({
@@ -63,25 +76,40 @@ const Contact = () => {
     
     // Store form submission locally
     const newSubmission = { ...values };
+    const timestamp = new Date().toISOString();
     
     try {
       // If Google Sheet webhook URL is set, send data there
       if (googleSheetUrl) {
         console.log("Submitting to Google Sheet:", googleSheetUrl);
         
-        const response = await fetch(googleSheetUrl, {
-          method: "POST",
-          mode: "no-cors", // Required for Google Apps Script webhooks
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            ...values,
-            timestamp: new Date().toISOString(),
-          }),
-        });
-        
-        console.log("Google Sheet submission sent");
+        try {
+          await fetch(googleSheetUrl, {
+            method: "POST",
+            mode: "no-cors", // Required for Google Apps Script webhooks
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...values,
+              timestamp,
+            }),
+          });
+          
+          console.log("Google Sheet submission sent");
+          setIntegrationStatus({
+            status: 'success',
+            message: 'Data likely sent to Google Sheet (no-cors mode prevents confirmation)',
+            timestamp: new Date().toLocaleTimeString()
+          });
+        } catch (error) {
+          console.error("Error sending to Google Sheet:", error);
+          setIntegrationStatus({
+            status: 'error',
+            message: `Failed to send to Google Sheet: ${error instanceof Error ? error.message : 'Unknown error'}`,
+            timestamp: new Date().toLocaleTimeString()
+          });
+        }
       }
       
       // Store locally regardless of Google Sheet submission
@@ -100,8 +128,92 @@ const Contact = () => {
         description: "There was a problem submitting your message. Please try again.",
         variant: "destructive",
       });
+      setIntegrationStatus({
+        status: 'error',
+        message: `Form submission error: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        timestamp: new Date().toLocaleTimeString()
+      });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const saveGoogleSheetUrl = () => {
+    if (googleSheetUrl) {
+      localStorage.setItem('googleSheetWebhookUrl', googleSheetUrl);
+      setIntegrationStatus({
+        status: 'idle',
+        message: 'Configuration saved. Submit a form to test the integration.',
+        timestamp: new Date().toLocaleTimeString()
+      });
+      toast({
+        title: "Configuration Saved",
+        description: "Form submissions will now be sent to your Google Sheet."
+      });
+    } else {
+      localStorage.removeItem('googleSheetWebhookUrl');
+      setIntegrationStatus({ status: 'idle' });
+      toast({
+        title: "Configuration Cleared",
+        description: "Google Sheet integration has been disabled."
+      });
+    }
+  };
+
+  const testGoogleSheetIntegration = async () => {
+    if (!googleSheetUrl) {
+      toast({
+        title: "No URL Configured",
+        description: "Please enter a Google Sheet webhook URL first.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIntegrationStatus({
+      status: 'idle',
+      message: 'Testing connection...',
+      timestamp: new Date().toLocaleTimeString()
+    });
+
+    try {
+      await fetch(googleSheetUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Test User",
+          email: "test@example.com",
+          phone: "123-456-7890",
+          company: "Test Company",
+          message: "This is a test submission to verify Google Sheet integration",
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      setIntegrationStatus({
+        status: 'success',
+        message: 'Test data sent! Check your Google Sheet for a new test entry.',
+        timestamp: new Date().toLocaleTimeString()
+      });
+
+      toast({
+        title: "Test Sent",
+        description: "Check your Google Sheet for a test entry."
+      });
+    } catch (error) {
+      console.error("Test integration error:", error);
+      setIntegrationStatus({
+        status: 'error',
+        message: `Test failed: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        timestamp: new Date().toLocaleTimeString()
+      });
+
+      toast({
+        title: "Test Failed",
+        description: "Unable to connect to Google Sheet. Verify your webhook URL.",
+        variant: "destructive"
+      });
     }
   };
 
@@ -229,24 +341,37 @@ const Contact = () => {
                     />
                     <Button 
                       variant="outline"
-                      onClick={() => {
-                        if (googleSheetUrl) {
-                          toast({
-                            title: "Configuration Saved",
-                            description: "Form submissions will now be sent to your Google Sheet."
-                          });
-                        } else {
-                          setGoogleSheetUrl("");
-                          toast({
-                            title: "Configuration Cleared",
-                            description: "Google Sheet integration has been disabled."
-                          });
-                        }
-                      }}
+                      onClick={saveGoogleSheetUrl}
                     >
                       {googleSheetUrl ? "Save" : "Clear"}
                     </Button>
                   </div>
+                  
+                  {googleSheetUrl && (
+                    <div className="mt-2">
+                      <Button 
+                        variant="outline"
+                        onClick={testGoogleSheetIntegration}
+                        className="w-full"
+                      >
+                        Test Connection
+                      </Button>
+                    </div>
+                  )}
+                  
+                  {integrationStatus.message && (
+                    <Alert className="mt-3" variant={integrationStatus.status === 'error' ? "destructive" : 
+                                                      integrationStatus.status === 'success' ? "default" : "outline"}>
+                      {integrationStatus.status === 'success' && <Check className="h-4 w-4" />}
+                      {integrationStatus.status === 'error' && <AlertCircle className="h-4 w-4" />}
+                      <AlertTitle>Integration Status</AlertTitle>
+                      <AlertDescription>
+                        {integrationStatus.message}
+                        {integrationStatus.timestamp && <div className="text-xs mt-1">Last updated: {integrationStatus.timestamp}</div>}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+
                   <p className="text-sm text-gray-500 mt-2">
                     To set up a Google Sheet integration: 
                     1. Create a Google Sheet 
