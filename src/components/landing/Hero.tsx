@@ -10,10 +10,11 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-900 leading-tight">
-            Scale Your D2C Brand With <span className="text-blue-600">Data-Driven</span> Growth
+              Data-Driven Growth & Performance Marketing That Converts
             </h1>
             <p className="mt-6 text-lg md:text-xl text-gray-700 md:pr-8">
-              I help D2C brands scale profitably through performance marketing, conversion optimization, and smart experimentation. 
+              I help D2C brands scale profitably through performance marketing, conversion optimization, and smart experimentation. Let's turn your brand into a growth engine.
+            </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Button 
                 className="bg-blue-800 hover:bg-blue-900 text-white font-medium text-lg px-8 py-6"
@@ -23,7 +24,7 @@ const Hero = () => {
                   });
                 }}
               >
-                Book a Strategy Call
+                Let's Work Together
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button 
