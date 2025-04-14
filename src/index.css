@@ -88,6 +88,10 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  body {
+    @apply bg-gradient-to-br from-[#F2FCE2] via-[#FEF7CD] to-[#D3E4FD] min-h-screen;
+  }
 }
 
 @layer base {
