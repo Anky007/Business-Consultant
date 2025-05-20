@@ -8,8 +8,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
-// Get the base URL from env or default to '/'
-const baseUrl = import.meta.env.VITE_BASE_PATH || '/';
+// Use base path '/' for custom domain
+const baseUrl = '/';
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
