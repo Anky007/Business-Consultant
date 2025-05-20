@@ -53,9 +53,11 @@ const Contact = () => {
                 </div>
                 
                 <div className="mt-4">
-                  <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white font-medium py-6">
-                    Book a Free Discovery Call
-                  </Button>
+                  <a href="https://calendly.com/ankita-anshu12/30min" target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white font-medium py-6">
+                      Book a Free Discovery Call
+                    </Button>
+                  </a>
                 </div>
               </div>
 
