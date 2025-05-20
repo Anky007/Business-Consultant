@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
-            <h2 className="text-2xl font-bold mb-2">GrowthArchitect</h2>
+            <h2 className="text-2xl font-bold mb-2">AnkitaAnshu</h2>
             <p className="text-blue-200 text-sm max-w-xs">
               Helping ambitious D2C brands scale through data-driven digital marketing strategies.
             </p>
@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="mt-12 pt-6 border-t border-blue-800 text-center md:text-left">
           <p className="text-sm text-blue-300">
-            &copy; {new Date().getFullYear()} GrowthArchitect. All rights reserved.
+            &copy; {new Date().getFullYear()} AnkitaAnshu. All rights reserved.
           </p>
         </div>
       </div>
