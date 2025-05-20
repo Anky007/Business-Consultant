@@ -2,6 +2,13 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "@/components/ui/carousel";
 
 interface TestimonialProps {
   content: string;
@@ -31,19 +38,19 @@ const Testimonials = () => {
   const testimonials = [
     {
       content: "Working with this consultant transformed our marketing approach. Our ads are now consistently profitable, and we've been able to scale our business more than we thought possible.",
-      author: "Anjali Sharma",
+      author: "Srishti Rawat",
       role: "Founder",
       company: "Delta Charms"
     },
     {
       content: "The landing page optimizations increased our conversion rate by 42%. We're getting more customers from the same traffic, which has been game-changing for our business.",
-      author: "Priya Desai",
-      role: "Marketing Director",
+      author: "Sonali Verma",
+      role: "COO",
       company: "Dhauladhar Pickles"
     },
     {
       content: "Our Google Ads were barely breaking even before we started working together. Now they're one of our most profitable channels. The strategic approach and attention to detail made all the difference.",
-      author: "Rohan Patel",
+      author: "Chetnnya Jain",
       role: "CEO",
       company: "Weekend Artist"
     },
@@ -59,7 +66,8 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Desktop view: Grid layout */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <Testimonial
               key={index}
@@ -69,6 +77,28 @@ const Testimonials = () => {
               company={testimonial.company}
             />
           ))}
+        </div>
+
+        {/* Mobile view: Carousel */}
+        <div className="md:hidden">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index}>
+                  <Testimonial
+                    content={testimonial.content}
+                    author={testimonial.author}
+                    role={testimonial.role}
+                    company={testimonial.company}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-6">
+              <CarouselPrevious className="relative static translate-y-0 left-0 mr-2" />
+              <CarouselNext className="relative static translate-y-0 right-0 ml-2" />
+            </div>
+          </Carousel>
         </div>
       </div>
     </section>
