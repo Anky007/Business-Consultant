@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Phone, Mail, Linkedin } from "lucide-react";
+import { cases as work } from "@/data/cases";
 
 const services = [
   {
@@ -24,15 +26,6 @@ const services = [
   },
 ];
 
-const work = [
-  { brand: "Gullye", type: "Luxury Bags & Accessories · D2C", result: "Meta & Pinterest Ads + Shopify CRO — improved conversions and streamlined operations." },
-  { brand: "Delta Charms", type: "Jewelry · D2C", result: "Meta Ads + WhatsApp flows + Shopify CRO — improved conversions and streamlined operations." },
-  { brand: "Vasundhara Jewellery", type: "Jewelry · D2C", result: "Meta Ads + WhatsApp flows + Shopify CRO + Influencer Marketing — improved brand recognition and conversions." },
-  { brand: "Dhauladhar Pickles", type: "Food & Beverage · Marketplace", result: "Meta Ads and marketplace listings to expand reach and scale monthly orders." },
-  { brand: "Weekend Artist", type: "Candles & Workshops", result: "Full-funnel paid media and retention automation to scale candle sales and workshop bookings." },
-  { brand: "Unacademy", type: "Edtech · ₹60Cr/month", result: "3× revenue growth and 30% increase in active users across a ₹60Cr/month vertical." },
-  { brand: "OYO Rooms", type: "Hospitality · ₹17Cr/month", result: "40% increase in productivity and ₹17Cr+ in NRV." },
-];
 
 const stats = [
   { val: "7+", label: "Years in D2C growth" },
@@ -148,11 +141,16 @@ const Index = () => {
           </p>
           <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))" }}>
             {work.map((w) => (
-              <div key={w.brand} className="bg-neutral-100 rounded-lg p-5">
+              <Link
+                key={w.slug}
+                to={`/case/${w.slug}`}
+                className="group relative block bg-neutral-100 rounded-lg p-5 border border-transparent hover:border-neutral-300 hover:bg-white transition"
+              >
+                <ArrowRight className="absolute top-4 right-4 h-3.5 w-3.5 text-neutral-400 opacity-0 group-hover:opacity-100 transition" />
                 <p className="text-sm font-medium mb-1">{w.brand}</p>
                 <p className="text-[12px] text-neutral-400 mb-3">{w.type}</p>
                 <p className="text-[13px] text-neutral-600 leading-[1.5] m-0">{w.result}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
