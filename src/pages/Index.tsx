@@ -1,5 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Phone, Mail, Linkedin } from "lucide-react";
+import { cases as work } from "@/data/cases";
 
 const services = [
   {
