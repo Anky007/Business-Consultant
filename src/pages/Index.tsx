@@ -141,11 +141,16 @@ const Index = () => {
           </p>
           <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))" }}>
             {work.map((w) => (
-              <div key={w.brand} className="bg-neutral-100 rounded-lg p-5">
+              <Link
+                key={w.slug}
+                to={`/case/${w.slug}`}
+                className="group relative block bg-neutral-100 rounded-lg p-5 border border-transparent hover:border-neutral-300 hover:bg-white transition"
+              >
+                <ArrowRight className="absolute top-4 right-4 h-3.5 w-3.5 text-neutral-400 opacity-0 group-hover:opacity-100 transition" />
                 <p className="text-sm font-medium mb-1">{w.brand}</p>
                 <p className="text-[12px] text-neutral-400 mb-3">{w.type}</p>
                 <p className="text-[13px] text-neutral-600 leading-[1.5] m-0">{w.result}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </section>
