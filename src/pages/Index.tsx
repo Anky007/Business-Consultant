@@ -26,15 +26,6 @@ const services = [
   },
 ];
 
-const work = [
-  { brand: "Gullye", type: "Luxury Bags & Accessories · D2C", result: "Meta & Pinterest Ads + Shopify CRO — improved conversions and streamlined operations." },
-  { brand: "Delta Charms", type: "Jewelry · D2C", result: "Meta Ads + WhatsApp flows + Shopify CRO — improved conversions and streamlined operations." },
-  { brand: "Vasundhara Jewellery", type: "Jewelry · D2C", result: "Meta Ads + WhatsApp flows + Shopify CRO + Influencer Marketing — improved brand recognition and conversions." },
-  { brand: "Dhauladhar Pickles", type: "Food & Beverage · Marketplace", result: "Meta Ads and marketplace listings to expand reach and scale monthly orders." },
-  { brand: "Weekend Artist", type: "Candles & Workshops", result: "Full-funnel paid media and retention automation to scale candle sales and workshop bookings." },
-  { brand: "Unacademy", type: "Edtech · ₹60Cr/month", result: "3× revenue growth and 30% increase in active users across a ₹60Cr/month vertical." },
-  { brand: "OYO Rooms", type: "Hospitality · ₹17Cr/month", result: "40% increase in productivity and ₹17Cr+ in NRV." },
-];
 
 const stats = [
   { val: "7+", label: "Years in D2C growth" },
