@@ -185,12 +185,12 @@ const Index = () => {
                 Email me
               </a>
               <a
-                href="https://www.linkedin.com/in/ankitaanshu/"
+                href="https://wa.me/919085971270"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm bg-transparent text-neutral-600 border border-neutral-300 rounded-md px-[22px] py-[10px] text-center hover:bg-white transition"
               >
-                LinkedIn
+                WhatsApp me
               </a>
             </div>
           </div>

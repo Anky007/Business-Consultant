@@ -121,24 +121,6 @@ export const cases: CaseStudy[] = [
     what: "Managed large-scale paid media across Meta and Google, overseeing creative strategy, campaign testing, and optimisation. Worked on funnel improvements from ad to landing page to activation.",
     fill: ["CAC before & after", "ROAS or CPL data", "Channel-wise spend & revenue split", "Activation rate improvement", "Retention / resubscription rate"],
   },
-  {
-    slug: "oyo-rooms",
-    brand: "OYO Rooms",
-    type: "Hospitality · ₹17Cr/month",
-    result: "40% increase in productivity and ₹17Cr+ in NRV.",
-    eyebrow: "Hospitality · ₹17Cr/month NRV",
-    subtitle: "Increasing team productivity by 40% and hitting ₹17Cr+ in net revenue.",
-    tags: ["Growth Operations", "Performance Marketing", "Revenue Optimisation"],
-    metrics: [
-      { val: "+40%", label: "Productivity increase" },
-      { val: "₹17Cr+", label: "NRV achieved" },
-      { val: "Fill in", label: "CAC" },
-      { val: "Fill in", label: "Booking growth" },
-    ],
-    challenge: "Scaling NRV while managing operational efficiency across a large hospitality network with tight margin requirements.",
-    what: "Worked across growth operations and performance marketing to improve team output and revenue targets, optimising both acquisition and NRV metrics.",
-    fill: ["NRV growth timeline", "CAC data", "Booking volume before & after", "Channel-wise revenue contribution", "Team size and output metrics"],
-  },
 ];
 
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);
