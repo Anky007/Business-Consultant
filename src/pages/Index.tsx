@@ -140,18 +140,41 @@ const Index = () => {
             Past work
           </p>
           <div className="grid gap-3" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))" }}>
-            {work.map((w) => (
-              <Link
-                key={w.slug}
-                to={`/case/${w.slug}`}
-                className="group relative block bg-neutral-100 rounded-lg p-5 border border-transparent hover:border-neutral-300 hover:bg-white transition"
-              >
-                <ArrowRight className="absolute top-4 right-4 h-3.5 w-3.5 text-neutral-400 opacity-0 group-hover:opacity-100 transition" />
-                <p className="text-sm font-medium mb-1">{w.brand}</p>
-                <p className="text-[12px] text-neutral-400 mb-3">{w.type}</p>
-                <p className="text-[13px] text-neutral-600 leading-[1.5] m-0">{w.result}</p>
-              </Link>
-            ))}
+            {work.map((w) => {
+              const topMetrics = w.metrics.filter((m) => m.val.toLowerCase() !== "fill in").slice(0, 3);
+              return (
+                <Link
+                  key={w.slug}
+                  to={`/case/${w.slug}`}
+                  className="group relative flex flex-col bg-neutral-100 rounded-lg p-5 border border-transparent hover:border-neutral-300 hover:bg-white transition"
+                >
+                  <ArrowRight className="absolute top-4 right-4 h-3.5 w-3.5 text-neutral-400 opacity-0 group-hover:opacity-100 transition" />
+                  <p className="text-sm font-medium mb-1">{w.brand}</p>
+                  <p className="text-[12px] text-neutral-400 mb-3">{w.type}</p>
+                  <p className="text-[13px] text-neutral-600 leading-[1.5] m-0">{w.result}</p>
+
+                  {topMetrics.length > 0 && (
+                    <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-neutral-200">
+                      {topMetrics.map((m) => (
+                        <div key={m.label} className="text-center">
+                          <div
+                            className="text-[16px] font-medium text-neutral-900 leading-tight"
+                            style={{ fontFamily: "'Playfair Display', serif" }}
+                          >
+                            {m.val}
+                          </div>
+                          <div className="text-[10px] text-neutral-500 mt-0.5 leading-tight">{m.label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <span className="mt-4 inline-flex items-center justify-center gap-1.5 text-[12px] font-medium bg-neutral-900 text-white rounded-md px-3 py-2 group-hover:bg-neutral-800 transition">
+                    View case study <ArrowRight className="h-3 w-3" />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
