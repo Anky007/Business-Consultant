@@ -91,7 +91,11 @@
   }
 
   body {
-    @apply bg-gradient-to-br from-[#F2FCE2] via-[#FEF7CD] to-[#D3E4FD] min-h-screen;
+    @apply min-h-screen;
+    background-color: #f0ece3;
+    color: #1a1a1a;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
   }
 }
 
