@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, ArrowRight, Edit3 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Edit3, TrendingUp, BarChart3, Wallet, PieChart } from "lucide-react";
 import { getCase } from "@/data/cases";
 
 const CALENDLY = "https://calendly.com/ankita-anshu12/30min";
