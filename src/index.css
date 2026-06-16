@@ -105,6 +105,19 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background-color: #f0ece3;
+  }
+}
+
+@layer components {
+  .btn-pill-primary {
+    @apply inline-flex items-center gap-2 bg-[#1a1a1a] text-white rounded-full pl-6 pr-2 py-2 text-[15px] font-medium hover:bg-black transition;
+  }
+  .btn-pill-primary .arrow-circle {
+    @apply inline-flex items-center justify-center w-9 h-9 rounded-full bg-white text-[#1a1a1a];
+  }
+  .btn-pill-outline {
+    @apply inline-flex items-center justify-center bg-transparent text-[#1a1a1a] border-2 border-[#1a1a1a] rounded-full px-7 py-[10px] text-[15px] font-medium hover:bg-[#1a1a1a] hover:text-white transition;
   }
 }
