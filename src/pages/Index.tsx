@@ -60,17 +60,17 @@ const Index = () => {
         </nav>
 
         {/* Hero */}
-        <section className="pt-16 pb-20 text-center">
-          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-6 font-medium">
+        <section className="pt-6 pb-20 text-center">
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-4 font-medium">
             D2C GROWTH CONSULTANT · 8+ YEARS
           </p>
           <h1
-            className="text-[64px] md:text-[88px] leading-[0.95] font-black tracking-[-0.035em] m-0 mb-8 max-w-[1000px] mx-auto"
+            className="text-[44px] md:text-[60px] leading-[1] font-black tracking-[-0.035em] m-0 mb-6 max-w-[880px] mx-auto"
             style={{ fontFamily: HEADING_FONT }}
           >
             Turn your D2C brand into a scalable revenue machine.
           </h1>
-          <p className="text-[18px] md:text-[20px] text-[#5a5a5a] leading-[1.5] max-w-[680px] mx-auto mb-10">
+          <p className="text-[16px] md:text-[18px] text-[#5a5a5a] leading-[1.5] max-w-[640px] mx-auto mb-8">
             From Shopify CRO, to marketplace expansion, I help Indian D2C brands build the growth infrastructure that takes them from chaos to consistent scale.
           </p>
           <div className="flex items-center gap-4 flex-wrap justify-center">
