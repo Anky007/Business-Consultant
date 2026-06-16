@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowLeft, Edit3 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Edit3 } from "lucide-react";
 import { getCase } from "@/data/cases";
 
 const CALENDLY = "https://calendly.com/ankita-anshu12/30min";
+const HEADING_FONT = "'Inter', system-ui, sans-serif";
 
 const CaseStudy = () => {
   const { slug } = useParams();
@@ -16,97 +17,93 @@ const CaseStudy = () => {
   if (!c) {
     return (
       <div className="max-w-[680px] mx-auto px-5 py-20 text-center">
-        <p className="text-neutral-600 mb-4">Case study not found.</p>
-        <Link to="/" className="text-neutral-900 underline">Back to home</Link>
+        <p className="text-[#5a5a5a] mb-4">Case study not found.</p>
+        <Link to="/" className="text-[#1a1a1a] underline">Back to home</Link>
       </div>
     );
   }
 
   return (
-    <div className="text-neutral-900" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="text-[#1a1a1a]">
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       />
-      <div className="max-w-[680px] mx-auto px-5">
-        <nav className="flex justify-between items-center py-5 border-b border-neutral-200">
-          <Link to="/" className="text-[18px] font-medium tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
+      <div className="max-w-[1000px] mx-auto px-6">
+        <nav className="flex justify-between items-center py-7">
+          <Link to="/" className="text-[20px] font-bold tracking-tight" style={{ fontFamily: HEADING_FONT }}>
             Ankita Anshu
           </Link>
-          <Link to="/" className="text-[13px] bg-neutral-900 text-white rounded-md px-4 py-[7px] font-medium hover:bg-neutral-800 transition">
-            ← All work
-          </Link>
+          <Link to="/" className="btn-pill-outline !py-2 !px-5 !text-[13px]">← All work</Link>
         </nav>
 
-        <div className="pt-8">
-          <Link to="/" className="inline-flex items-center gap-1.5 text-[13px] text-neutral-600 hover:text-neutral-900 mb-8">
+        <div className="pt-10">
+          <Link to="/" className="inline-flex items-center gap-1.5 text-[13px] text-[#5a5a5a] hover:text-[#1a1a1a] mb-10">
             <ArrowLeft className="h-3.5 w-3.5" /> Back to all work
           </Link>
 
-          <p className="text-[12px] tracking-[0.12em] uppercase text-neutral-500 mb-3">{c.eyebrow}</p>
-          <h1 className="text-[34px] leading-[1.2] font-normal m-0 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-4 font-medium">{c.eyebrow}</p>
+          <h1 className="text-[56px] md:text-[80px] leading-[0.95] font-black tracking-[-0.035em] m-0 mb-5" style={{ fontFamily: HEADING_FONT }}>
             {c.brand}
           </h1>
-          <p className="text-[15px] text-neutral-600 mb-8">{c.subtitle}</p>
+          <p className="text-[18px] md:text-[20px] text-[#5a5a5a] mb-8 leading-[1.5] max-w-[720px]">{c.subtitle}</p>
 
-          <div className="flex flex-wrap gap-1.5 mb-8">
+          <div className="flex flex-wrap gap-2 mb-12">
             {c.tags.map((t) => (
-              <span key={t} className="text-[11px] bg-neutral-100 text-neutral-600 rounded-full px-2.5 py-[3px]">
+              <span key={t} className="text-[12px] bg-[#1a1a1a]/5 text-[#1a1a1a] rounded-full px-3 py-1">
                 {t}
               </span>
             ))}
           </div>
 
-          <hr className="border-t border-neutral-200 my-8" />
+          <hr className="border-t border-[#1a1a1a]/10 my-10" />
 
-          <p className="text-[11px] tracking-[0.12em] uppercase text-neutral-400 mb-3">Key results</p>
-          <div className="grid gap-3 mb-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))" }}>
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-5 font-medium">Key results</p>
+          <div className="grid gap-4 mb-12" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))" }}>
             {c.metrics.map((m) => (
-              <div key={m.label} className="bg-neutral-100 rounded-md p-4">
-                <div className="text-[26px] font-medium mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+              <div key={m.label} className="bg-white/60 backdrop-blur-sm border border-[#1a1a1a]/10 rounded-2xl p-5">
+                <div className="text-[34px] font-black tracking-tight mb-1 leading-none" style={{ fontFamily: HEADING_FONT }}>
                   {m.val}
                 </div>
-                <div className="text-[12px] text-neutral-600">{m.label}</div>
+                <div className="text-[13px] text-[#5a5a5a]">{m.label}</div>
               </div>
             ))}
           </div>
 
-          <hr className="border-t border-neutral-200 my-8" />
+          <hr className="border-t border-[#1a1a1a]/10 my-10" />
 
-          <p className="text-[11px] tracking-[0.12em] uppercase text-neutral-400 mb-3">The challenge</p>
-          <p className="text-sm text-neutral-600 leading-[1.75] mb-6">{c.challenge}</p>
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">The challenge</p>
+          <p className="text-[16px] text-[#3a3a3a] leading-[1.7] mb-8 max-w-[720px]">{c.challenge}</p>
 
-          <p className="text-[11px] tracking-[0.12em] uppercase text-neutral-400 mb-3">What I did</p>
-          <p className="text-sm text-neutral-600 leading-[1.75] mb-6">{c.what}</p>
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">What I did</p>
+          <p className="text-[16px] text-[#3a3a3a] leading-[1.7] mb-8 max-w-[720px]">{c.what}</p>
 
-          <p className="text-[11px] tracking-[0.12em] uppercase text-neutral-400 mb-3">Metrics to fill in</p>
-          <div className="space-y-2 mb-8">
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">Metrics to fill in</p>
+          <div className="space-y-2 mb-12">
             {c.fill.map((f) => (
-              <div key={f} className="bg-neutral-100 rounded-md px-5 py-3 text-[13px] text-neutral-500 border border-dashed border-neutral-300 flex items-center gap-2">
+              <div key={f} className="bg-white/40 rounded-2xl px-5 py-3 text-[13px] text-[#5a5a5a] border border-dashed border-[#1a1a1a]/20 flex items-center gap-2">
                 <Edit3 className="h-3.5 w-3.5" /> {f}
               </div>
             ))}
           </div>
 
-          <hr className="border-t border-neutral-200 my-8" />
+          <hr className="border-t border-[#1a1a1a]/10 my-10" />
 
-          <div className="bg-neutral-100 rounded-lg p-8 flex justify-between items-center gap-6 flex-wrap">
-            <div className="flex-1 min-w-[240px]">
-              <h3 className="text-[22px] font-normal mb-1.5" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Working on something similar?
-              </h3>
-              <p className="text-sm text-neutral-600 m-0">I'd love to hear about your brand and share a few ideas.</p>
-            </div>
-            <div className="flex flex-col gap-2.5 min-w-[200px]">
-              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="text-sm bg-neutral-900 text-white rounded-md px-[22px] py-[10px] font-medium text-center hover:bg-neutral-800 transition">
-                Book a free call →
+          <div className="bg-white/60 backdrop-blur-sm border border-[#1a1a1a]/10 rounded-3xl p-10 md:p-12 text-center">
+            <h3 className="text-[32px] md:text-[44px] font-black tracking-[-0.03em] leading-[1.05] mb-4" style={{ fontFamily: HEADING_FONT }}>
+              Working on something similar?
+            </h3>
+            <p className="text-[16px] text-[#5a5a5a] m-0 mb-7 max-w-[520px] mx-auto">I'd love to hear about your brand and share a few ideas.</p>
+            <div className="flex gap-3 flex-wrap justify-center">
+              <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-pill-primary">
+                <span className="pl-1">Book a free call</span>
+                <span className="arrow-circle"><ArrowRight className="h-4 w-4" /></span>
               </a>
-              <a href="mailto:ankita.anshu12@gmail.com" className="text-sm bg-transparent text-neutral-600 border border-neutral-300 rounded-md px-[22px] py-[10px] text-center hover:bg-white transition">
-                Email me
-              </a>
+              <a href="mailto:ankita.anshu12@gmail.com" className="btn-pill-outline">Email me</a>
+              <a href="https://wa.me/919085971270" target="_blank" rel="noopener noreferrer" className="btn-pill-outline">WhatsApp me</a>
             </div>
           </div>
-          <div className="h-12" />
+          <div className="h-16" />
         </div>
       </div>
     </div>
