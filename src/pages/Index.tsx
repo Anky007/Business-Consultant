@@ -27,7 +27,7 @@ const services = [
 ];
 
 const stats = [
-  { val: "8+", label: "Years in D2C growth" },
+  { val: "8+", label: "Years in growth strategy\u00a0" },
   { val: "50→5K+", label: "Orders/month scaled" },
   { val: "4–6×", label: "ROAS on paid campaigns" },
   { val: "₹60Cr", label: "Monthly ad spend managed" },
