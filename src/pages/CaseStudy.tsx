@@ -58,17 +58,36 @@ const CaseStudy = () => {
 
           <hr className="border-t border-[#1a1a1a]/10 my-10" />
 
-          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-5 font-medium">Key results</p>
-          <div className="grid gap-4 mb-12" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))" }}>
-            {c.metrics.map((m) => (
-              <div key={m.label} className="bg-white/60 backdrop-blur-sm border border-[#1a1a1a]/10 rounded-2xl p-5">
-                <div className="text-[34px] font-black tracking-tight mb-1 leading-none" style={{ fontFamily: HEADING_FONT }}>
-                  {m.val}
-                </div>
-                <div className="text-[13px] text-[#5a5a5a]">{m.label}</div>
+          {/* Key results — gradient card */}
+          <div className="relative rounded-[28px] p-[2px] mb-12 shadow-[0_20px_60px_-20px_rgba(80,120,200,0.35)]"
+               style={{ background: "linear-gradient(160deg, #cfe0ff 0%, #e8efff 35%, #fdf2e4 70%, #f5d9bf 100%)" }}>
+            <div className="rounded-[26px] bg-white p-7 md:p-9">
+              <h3 className="text-[20px] md:text-[22px] font-bold tracking-tight mb-1" style={{ fontFamily: HEADING_FONT }}>
+                Key results
+              </h3>
+              <p className="text-[13px] text-[#6b6b6b] mb-6">Performance snapshot from the engagement.</p>
+              <div className="h-px bg-[#1a1a1a]/8 mb-6" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                {c.metrics.map((m, i) => {
+                  const Icon = [TrendingUp, BarChart3, Wallet, PieChart][i % 4];
+                  return (
+                    <div key={m.label} className="flex items-center gap-4">
+                      <div className="shrink-0 h-12 w-12 rounded-full bg-[#f1efe9] flex items-center justify-center">
+                        <Icon className="h-5 w-5 text-[#1a1a1a]" strokeWidth={1.75} />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-[26px] md:text-[28px] font-black tracking-tight leading-none" style={{ fontFamily: HEADING_FONT }}>
+                          {m.val}
+                        </div>
+                        <div className="text-[13px] text-[#6b6b6b] mt-1 leading-tight">{m.label}</div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
-            ))}
+            </div>
           </div>
+
 
           <hr className="border-t border-[#1a1a1a]/10 my-10" />
 
