@@ -27,7 +27,7 @@ const services = [
 ];
 
 const stats = [
-  { val: "7+", label: "Years in D2C growth" },
+  { val: "8+", label: "Years in D2C growth" },
   { val: "50→5K+", label: "Orders/month scaled" },
   { val: "4–6×", label: "ROAS on paid campaigns" },
   { val: "₹60Cr", label: "Monthly ad spend managed" },
@@ -62,7 +62,7 @@ const Index = () => {
         {/* Hero */}
         <section className="pt-16 pb-20 text-center">
           <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-6 font-medium">
-            D2C Growth Consultant · 7+ Years
+            D2C GROWTH CONSULTANT · 8+ YEARS
           </p>
           <h1
             className="text-[64px] md:text-[88px] leading-[0.95] font-black tracking-[-0.035em] m-0 mb-8 max-w-[1000px] mx-auto"
@@ -71,7 +71,7 @@ const Index = () => {
             Turn your D2C brand into a scalable revenue machine.
           </h1>
           <p className="text-[18px] md:text-[20px] text-[#5a5a5a] leading-[1.5] max-w-[680px] mx-auto mb-10">
-            From Shopify CRO to marketplace expansion — I help Indian D2C brands build the growth infrastructure that takes them from chaos to consistent scale.
+            From Shopify CRO, to marketplace expansion, I help Indian D2C brands build the growth infrastructure that takes them from chaos to consistent scale.
           </p>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             <a href={CALENDLY} target="_blank" rel="noopener noreferrer" className="btn-pill-primary">
