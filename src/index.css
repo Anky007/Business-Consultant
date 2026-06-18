@@ -92,7 +92,7 @@
 
   body {
     @apply min-h-screen;
-    background-color: #f0ece3;
+    background-color: #f8f8f8;
     color: #1a1a1a;
     font-family: 'Inter', system-ui, sans-serif;
     font-feature-settings: "ss01", "cv11";
@@ -106,7 +106,7 @@
 
   body {
     @apply text-foreground;
-    background-color: #f0ece3;
+    background-color: #f8f8f8;
   }
 }
 
