@@ -29,7 +29,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Gullye needed to reach the right luxury buyer online — a discerning audience that doesn't convert on generic ad creatives. The Shopify store wasn't built to match the premium positioning of the product.",
     what: "Rebuilt the Shopify store with a focus on premium visual storytelling and CRO best practices. Ran Meta and Pinterest campaigns targeting luxury lifestyle audiences, with creative strategy tailored to each platform's intent.",
-    fill: ["ROAS before & after", "Conversion rate before & after", "Monthly revenue before & after", "Cost per purchase before & after", "Pinterest vs Meta performance split"],
+    fill: ["44% Average conversion Lift", "2.3X increase in ROAS from Meta", "3X Growth in revenue\u00a0", "\n", "Pinterest vs Meta performance split"],
   },
   {
     slug: "delta-charms",
