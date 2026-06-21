@@ -65,7 +65,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Vasundhara had strong products but limited brand awareness. Paid media alone wasn't enough — the brand needed social proof and authentic reach to build trust with new buyers.",
     what: "Layered influencer marketing on top of paid media to build awareness, then captured that demand through optimised Meta campaigns and Shopify CRO. WhatsApp flows handled retention and COD confirmation.",
-    fill: ["2.3X increase in ROAS from Meta", "3-4X ROAS consistently delivered through strategic influencer partnerships\n\n", "\n", "155% Monthly engagement growth", "44% Average conversion Lift", "32% increase in\u00a0"],
+    fill: ["2.3X increase in ROAS from Meta", "3-4X ROAS consistently delivered through strategic influencer partnerships", "155% Monthly organic engagement growth", "32% increase in return customer growth", "29% Average conversion Lift", "23% increase in average order value"],
   },
   {
     slug: "dhauladhar-pickles",
