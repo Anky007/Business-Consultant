@@ -47,7 +47,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "High cart abandonment and COD-related RTOs were eating into margins. Ad spend wasn't being supported by a strong enough post-click experience.",
     what: "Set up WhatsApp flows for COD confirmation, cart recovery, and order updates. Optimised the Shopify store for conversions and ran Meta campaigns with full-funnel creative strategy.",
-    fill: ["2.3X increase in ROAS from Meta", "Cart recovery rate", "RTO % before & after", "3X Growth in revenue\u00a0", "WhatsApp open & click rates", "Revenue attributed to WhatsApp flows"],
+    fill: ["29% Avg increase in LTV", "22% MoM revenue growth", "21% increase in Average order value", "2X increase in conversion", "25% abandoned cart recovery using Whatsapp and Email Marketing", "90% decrease in RTO"],
   },
   {
     slug: "vasundhara-jewellery",
