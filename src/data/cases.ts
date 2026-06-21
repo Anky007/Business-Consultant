@@ -76,13 +76,13 @@ export const cases: CaseStudy[] = [
     subtitle: "Expanding a regional food brand's reach through marketplace listings and targeted paid media.",
     tags: ["Meta Ads", "Marketplace Management"],
     metrics: [
-      { val: "kk", label: "Orders/month growth" },
-      { val: "kk", label: "Marketplace GMV" },
-      { val: "kk", label: "ROAS" },
-      { val: "kk", label: "New marketplaces live" },
+      { val: "347%", label: "Total Revenue Growth" },
+      { val: "220%", label: "Organic Sales Growth" },
+      { val: "126%", label: "Traffic Growth" },
+      { val: "50%", label: "Reduction in TACoS" },
     ],
     challenge: "A beloved regional product with limited online distribution. The brand needed to be discoverable on the right marketplaces and supported by paid media to drive first purchases.",
-    what: "Listed and optimised products across relevant marketplaces. Ran Meta campaigns to drive awareness and trial, linking ad traffic to marketplace and DTC product pages.",
+    what: "Revamped the main product image to spotlight the product's standout feature, backed by A/B testing. Rebuilt the advertising structure for scalability - sharper keyword targeting, negation, and bid optimization to cut wasted spend and drive high-converting traffic.",
     fill: ["3X Growth in revenue\u00a0", "Marketplace GMV per platform", "2.3X increase in ROAS from Meta", "Number of marketplaces listed on", "Best-selling SKU data", "Return customer rate"],
   },
   {
