@@ -83,7 +83,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "A beloved regional product with limited online distribution. The brand needed to be discoverable on the right marketplaces and supported by paid media to drive first purchases.",
     what: "Listed and optimised products across relevant marketplaces. Ran Meta campaigns to drive awareness and trial, linking ad traffic to marketplace and DTC product pages.",
-    fill: ["Orders/month before & after", "Marketplace GMV per platform", "ROAS on Meta", "Number of marketplaces listed on", "Best-selling SKU data", "Return customer rate"],
+    fill: ["3X Growth in revenue\u00a0", "Marketplace GMV per platform", "2.3X increase in ROAS from Meta", "Number of marketplaces listed on", "Best-selling SKU data", "Return customer rate"],
   },
   {
     slug: "weekend-artist",
