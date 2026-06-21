@@ -119,7 +119,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Scaling a ₹60Cr/month vertical while maintaining efficiency in CAC across multiple subject verticals and audience segments.",
     what: "Managed large-scale paid media across Meta and Google, overseeing creative strategy, campaign testing, and optimisation. Worked on funnel improvements from ad to landing page to activation.",
-    fill: ["CAC before & after", "ROAS or CPL data", "Channel-wise spend & revenue split", "Activation rate improvement", "Retention / resubscription rate"],
+    fill: ["\n", "ROAS or CPL data", "Channel-wise spend & revenue split", "Activation rate improvement", "Retention / resubscription rate"],
   },
 ];
 
