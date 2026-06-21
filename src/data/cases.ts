@@ -83,7 +83,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "A beloved regional product with limited online distribution. The brand needed to be discoverable on the right marketplaces and supported by paid media to drive first purchases.",
     what: "Revamped the main product image to spotlight the product's standout feature, backed by A/B testing. Rebuilt the advertising structure for scalability - sharper keyword targeting, negation, and bid optimization to cut wasted spend and drive high-converting traffic.",
-    fill: ["3X Growth in revenue\u00a0", "Marketplace GMV per platform", "2.3X increase in ROAS from Meta", "Number of marketplaces listed on", "Best-selling SKU data", "Return customer rate"],
+    fill: ["50% Decrease in ACoS", "126% increase in traffic from Meta Ads", "#3 organic ranking for main keyword", "Conversion rate improved from 8% to 10.44%", "TACoS dropped from 24.36% to 13.31%", "347% total revenue growth"],
   },
   {
     slug: "weekend-artist",
