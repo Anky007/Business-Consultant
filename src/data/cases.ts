@@ -95,9 +95,9 @@ export const cases: CaseStudy[] = [
     tags: ["Meta Ads", "Email Automation", "WhatsApp Flows"],
     metrics: [
       { val: "1.8X", label: "ROAS Growth" },
-      { val: "1.6X", label: "" },
       { val: "2.8X", label: "Sales growth" },
-      { val: "kk", label: "Retention rate" },
+      { val: "1.6X", label: "Traffic Growth" },
+      { val: "12%", label: "Retention rate" },
     ],
     challenge: "Weekend Artist had two revenue streams — physical candle sales and workshop bookings — each needing a different funnel and audience strategy.",
     what: "Built separate paid media funnels for candles and workshops. Set up email and WhatsApp retention flows to convert first-time buyers into repeat customers and workshop attendees.",
