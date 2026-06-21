@@ -97,7 +97,7 @@ const CaseStudy = () => {
           <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">What I did</p>
           <p className="text-[16px] text-[#3a3a3a] leading-[1.7] mb-8 max-w-[720px]">{c.what}</p>
 
-          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">Metrics to fill in</p>
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">MEASURABLE GROWTH</p>
           <div className="space-y-2 mb-12">
             {c.fill.map((f) => (
               <div key={f} className="bg-white/40 rounded-2xl px-5 py-3 text-[13px] text-[#5a5a5a] border border-dashed border-[#1a1a1a]/20 flex items-center gap-2">
