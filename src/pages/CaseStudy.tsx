@@ -97,13 +97,32 @@ const CaseStudy = () => {
           <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">What I did</p>
           <p className="text-[16px] text-[#3a3a3a] leading-[1.7] mb-8 max-w-[720px]">{c.what}</p>
 
-          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-3 font-medium">MEASURABLE GROWTH</p>
-          <div className="space-y-2 mb-12">
-            {c.fill.map((f) => (
-              <div key={f} className="bg-white/40 rounded-2xl px-5 py-3 text-[13px] text-[#5a5a5a] border border-dashed border-[#1a1a1a]/20 flex items-center gap-2">
-                <Edit3 className="h-3.5 w-3.5" /> {f}
-              </div>
-            ))}
+          <p className="text-[12px] tracking-[0.18em] uppercase text-[#6b6b6b] mb-4 font-medium">MEASURABLE GROWTH</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-12">
+            {c.fill.map((f) => {
+              const match = f.trim().match(/^(#?[\d.,]+\s*(?:[xX%×])?)\s*(.*)$/);
+              const stat = match ? match[1].trim() : "";
+              const rest = match ? match[2].trim() : f.trim();
+              return (
+                <div
+                  key={f}
+                  className="group relative overflow-hidden rounded-2xl bg-white/70 backdrop-blur-sm border border-[#1a1a1a]/10 px-5 py-4 flex items-baseline gap-4 hover:border-[#1a1a1a]/25 hover:shadow-[0_8px_24px_-12px_rgba(80,120,200,0.3)] transition-all"
+                >
+                  {stat && (
+                    <span
+                      className="shrink-0 text-[28px] md:text-[34px] font-black tracking-[-0.03em] leading-none bg-clip-text text-transparent"
+                      style={{
+                        fontFamily: HEADING_FONT,
+                        backgroundImage: "linear-gradient(135deg, #1a1a1a 0%, #4a6cf7 100%)",
+                      }}
+                    >
+                      {stat}
+                    </span>
+                  )}
+                  <span className="text-[14px] md:text-[15px] text-[#3a3a3a] leading-snug">{rest || f}</span>
+                </div>
+              );
+            })}
           </div>
 
           <hr className="border-t border-[#1a1a1a]/10 my-10" />
