@@ -94,9 +94,9 @@ export const cases: CaseStudy[] = [
     subtitle: "Scaling both product sales and workshop bookings through full-funnel paid media and retention automation.",
     tags: ["Meta Ads", "Email Automation", "WhatsApp Flows"],
     metrics: [
-      { val: "kk", label: "Workshop bookings growth" },
-      { val: "kk", label: "Candle sales growth" },
-      { val: "kk", label: "ROAS" },
+      { val: "1.8X", label: "ROAS Growth" },
+      { val: "1.6X", label: "" },
+      { val: "2.8X", label: "Sales growth" },
       { val: "kk", label: "Retention rate" },
     ],
     challenge: "Weekend Artist had two revenue streams — physical candle sales and workshop bookings — each needing a different funnel and audience strategy.",
