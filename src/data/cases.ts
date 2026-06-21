@@ -29,7 +29,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Gullye needed to reach the right luxury buyer online — a discerning audience that doesn't convert on generic ad creatives. The Shopify store wasn't built to match the premium positioning of the product.",
     what: "Rebuilt the Shopify store with a focus on premium visual storytelling and CRO best practices. Ran Meta and Pinterest campaigns targeting luxury lifestyle audiences, with creative strategy tailored to each platform's intent.",
-    fill: ["ROAS before & after", "Conversion rate before & after", "Monthly revenue before & after", "Cost per purchase before & after", "Pinterest vs Meta performance split"],
+    fill: ["44% Average conversion Lift", "2.3X increase in ROAS from Meta", "3X Growth in revenue\u00a0", "\n", "Pinterest vs Meta performance split"],
   },
   {
     slug: "delta-charms",
@@ -47,7 +47,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "High cart abandonment and COD-related RTOs were eating into margins. Ad spend wasn't being supported by a strong enough post-click experience.",
     what: "Set up WhatsApp flows for COD confirmation, cart recovery, and order updates. Optimised the Shopify store for conversions and ran Meta campaigns with full-funnel creative strategy.",
-    fill: ["ROAS before & after", "Cart recovery rate", "RTO % before & after", "Orders/month before & after", "WhatsApp open & click rates", "Revenue attributed to WhatsApp flows"],
+    fill: ["2.3X increase in ROAS from Meta", "Cart recovery rate", "RTO % before & after", "3X Growth in revenue\u00a0", "WhatsApp open & click rates", "Revenue attributed to WhatsApp flows"],
   },
   {
     slug: "vasundhara-jewellery",
@@ -65,7 +65,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Vasundhara had strong products but limited brand awareness. Paid media alone wasn't enough — the brand needed social proof and authentic reach to build trust with new buyers.",
     what: "Layered influencer marketing on top of paid media to build awareness, then captured that demand through optimised Meta campaigns and Shopify CRO. WhatsApp flows handled retention and COD confirmation.",
-    fill: ["ROAS before & after", "3-4X ROAS consistently delivered through strategic influencer partnerships\n\n", "25% Focus on Micro & Nano-Influencer Marketing (where the real ROI lives)\n\n", "155% Monthly engagement growth", "Conversion rate before & after", "Repeat purchase rate"],
+    fill: ["2.3X increase in ROAS from Meta", "3-4X ROAS consistently delivered through strategic influencer partnerships\n\n", "25% Focus on Micro & Nano-Influencer Marketing (where the real ROI lives)\n\n", "155% Monthly engagement growth", "44% Average conversion Lift", "Repeat purchase rate"],
   },
   {
     slug: "dhauladhar-pickles",
@@ -83,7 +83,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "A beloved regional product with limited online distribution. The brand needed to be discoverable on the right marketplaces and supported by paid media to drive first purchases.",
     what: "Listed and optimised products across relevant marketplaces. Ran Meta campaigns to drive awareness and trial, linking ad traffic to marketplace and DTC product pages.",
-    fill: ["Orders/month before & after", "Marketplace GMV per platform", "ROAS on Meta", "Number of marketplaces listed on", "Best-selling SKU data", "Return customer rate"],
+    fill: ["3X Growth in revenue\u00a0", "Marketplace GMV per platform", "2.3X increase in ROAS from Meta", "Number of marketplaces listed on", "Best-selling SKU data", "Return customer rate"],
   },
   {
     slug: "weekend-artist",
@@ -101,7 +101,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Weekend Artist had two revenue streams — physical candle sales and workshop bookings — each needing a different funnel and audience strategy.",
     what: "Built separate paid media funnels for candles and workshops. Set up email and WhatsApp retention flows to convert first-time buyers into repeat customers and workshop attendees.",
-    fill: ["Workshop bookings before & after", "Candle revenue before & after", "ROAS per channel", "Email open & click rates", "WhatsApp flow conversion rate", "Customer LTV"],
+    fill: ["44% Average conversion Lift", "3X Growth in revenue\u00a0", "2.3X increase in ROAS from Meta", "Email open & click rates", "WhatsApp flow conversion rate", "Customer LTV"],
   },
   {
     slug: "unacademy",
@@ -119,7 +119,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Scaling a ₹60Cr/month vertical while maintaining efficiency in CAC across multiple subject verticals and audience segments.",
     what: "Managed large-scale paid media across Meta and Google, overseeing creative strategy, campaign testing, and optimisation. Worked on funnel improvements from ad to landing page to activation.",
-    fill: ["CAC before & after", "ROAS or CPL data", "Channel-wise spend & revenue split", "Activation rate improvement", "Retention / resubscription rate"],
+    fill: ["\n", "ROAS or CPL data", "Channel-wise spend & revenue split", "Activation rate improvement", "Retention / resubscription rate"],
   },
 ];
 
