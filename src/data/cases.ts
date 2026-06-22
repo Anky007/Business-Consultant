@@ -101,7 +101,7 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Weekend Artist had two revenue streams — physical candle sales and workshop bookings — each needing a different funnel and audience strategy.",
     what: "Built separate paid media funnels for candles and workshops. Set up email and WhatsApp retention flows to convert first-time buyers into repeat customers and workshop attendees.",
-    fill: ["44% Average conversion Lift", "3X Growth in revenue\u00a0", "2.3X increase in ROAS from Meta", "Email open & click rates", "WhatsApp flow conversion rate", "Customer LTV"],
+    fill: ["44% Average conversion Lift", "3X Growth in revenue\u00a0", "2.3X increase in ROAS from Meta", "27% uplift in Customer LTV with crosselling"],
   },
   {
     slug: "unacademy",
