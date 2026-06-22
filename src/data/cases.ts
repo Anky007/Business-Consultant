@@ -115,7 +115,7 @@ export const cases: CaseStudy[] = [
       { val: "3X", label: "Revenue growth" },
       { val: "+30%", label: "Active users Growth" },
       { val: "₹60Cr", label: "Monthly vertical size" },
-      { val: "kk", label: "CAC improvement" },
+      { val: "7X", label: "Product Marketing " },
     ],
     challenge: "Scaling a ₹60Cr/month vertical while maintaining efficiency in CAC across multiple subject verticals and audience segments.",
     what: "Managed large-scale paid media across Meta and Google, overseeing creative strategy, campaign testing, and optimisation. Worked on funnel improvements from ad to landing page to activation.",
