@@ -119,7 +119,14 @@ export const cases: CaseStudy[] = [
     ],
     challenge: "Scaling a ₹60Cr/month vertical while maintaining efficiency in CAC across multiple subject verticals and audience segments.",
     what: "Managed large-scale paid media across Meta and Google, overseeing creative strategy, campaign testing, and optimisation. Worked on funnel improvements from ad to landing page to activation.",
-    fill: ["\n", "ROAS or CPL data", "Channel-wise spend & revenue split", "Activation rate improvement", "Retention / resubscription rate"],
+    fill: [
+      "3X Revenue growth over 10 months through personalised user journeys",
+      "30% increase in monthly active users",
+      "2.5L+ active users acquired via learning festival campaigns",
+      "7+ ROI delivered through WhatsApp Marketing GTM",
+      "50+ low-cost products launched, generating 12Cr+ revenue over 5 months",
+      "70% GTM strategies contributing to monthly revenue stream",
+    ],
   },
 ];
 
